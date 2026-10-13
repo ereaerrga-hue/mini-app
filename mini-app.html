@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mini-app</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap" rel="stylesheet">
+
+    <style> body {
+        margin: 0;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #000000, #444444);
+        color: #fff;
+        font-family: sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    </style>
+
+    <style>
+        .button-inner {
+            transition: transform 0.1s ease;
+        }
+
+        .button-cash:active .button-inner {
+            transform: scale(0.9);
+        }
+
+        .button-cash{
+
+            animation: upDown 3s 0s infinite ease-in-out;
+        }
+
+        @keyframes upDown {
+            0%, 100% { transform: translateY(0);}
+            50%      { transform: translateY(-20px);}
+        }
+    </style>
+
+    <style>
+        .clik{
+            position: relative;
+            top: -400px;
+            left: -50px;
+            color: dimgrey;
+            border-radius: 50px;
+            font-family: "Calibri",serif;
+        }
+
+    </style>
+
+    <style>
+        .you-chek {
+            position: relative;
+            top: -435px;
+            left: 50px;
+            color: dimgray;
+            font-family: "Calibri",serif;
+        }
+    </style>
+</head>
+<body>
+
+<div class="you-chek">
+    <h4>Твой счёт</h4>
+        </div>
+
+<div class="clik">
+    <h2><span id="counter">0.000000000</span></h2>
+        </div>
+
+<div class="button-cash">
+    <button id="btn" style="border: none; width: 1px; height: 1px; position: relative; top: 360px; left: -300px; background: transparent">
+        <img class="button-inner" style="height: 400px" src="https://www.pngarts.com/files/3/Silver-Coin-Free-PNG-Image.png" alt="Cash">
+    </button>
+        </div>
+
+    <script>
+        let count = 0.000000000;
+
+        const btn = document.getElementById('btn');
+        const counter = document.getElementById('counter');
+        const STEP =1e9;
+
+        btn.addEventListener('click', () => {
+            count++;
+            counter.innerText = (count / STEP).toFixed(9);
+        });
+    </script>
+
+</body>
+<footer>
+
+</footer>
+</html>
